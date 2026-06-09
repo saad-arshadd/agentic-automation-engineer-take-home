@@ -1,0 +1,100 @@
+{
+  "results": {
+    "baseline": {
+      "variant": "baseline",
+      "n_orders": 20,
+      "exceptions": 0,
+      "missing_fields_rate": 0.0,
+      "risk_missing_rate": 0.0,
+      "avg_processing_time_ms": 77.91999999999999,
+      "summary_avg_len": 48.5,
+      "verbose_prefix_hits": 0,
+      "risk_level_counts": {
+        "high": 3,
+        "medium": 11,
+        "low": 6
+      },
+      "recommendation_counts": {
+        "review": 3,
+        "approve": 17
+      }
+    },
+    "variant_a": {
+      "variant": "variant_a",
+      "n_orders": 20,
+      "exceptions": 0,
+      "missing_fields_rate": 0.2,
+      "risk_missing_rate": 0.2,
+      "avg_processing_time_ms": 69.465,
+      "summary_avg_len": 46.5,
+      "verbose_prefix_hits": 0,
+      "risk_level_counts": {
+        "low": 6,
+        "unknown": 4,
+        "medium": 10
+      },
+      "recommendation_counts": {
+        "approve": 16,
+        "unknown": 4
+      }
+    },
+    "variant_b": {
+      "variant": "variant_b",
+      "n_orders": 20,
+      "exceptions": 0,
+      "missing_fields_rate": 0.0,
+      "risk_missing_rate": 1.0,
+      "avg_processing_time_ms": 79.73499999999999,
+      "summary_avg_len": 61.4,
+      "verbose_prefix_hits": 0,
+      "risk_level_counts": {
+        "unknown": 20
+      },
+      "recommendation_counts": {
+        "manual_review": 20
+      }
+    },
+    "variant_c": {
+      "variant": "variant_c",
+      "n_orders": 20,
+      "exceptions": 0,
+      "missing_fields_rate": 0.0,
+      "risk_missing_rate": 0.0,
+      "avg_processing_time_ms": 70.43,
+      "summary_avg_len": 525.6,
+      "verbose_prefix_hits": 20,
+      "risk_level_counts": {
+        "medium": 7,
+        "high": 2,
+        "low": 11
+      },
+      "recommendation_counts": {
+        "approve": 18,
+        "review": 2
+      }
+    }
+  },
+  "verdicts": {
+    "variant_a": {
+      "unsafe": true,
+      "reasons": [
+        "increased_missing_fields_rate",
+        "increased_risk_missing_rate"
+      ],
+      "js_divergence": 0.17585907188824818
+    },
+    "variant_b": {
+      "unsafe": true,
+      "reasons": [
+        "increased_risk_missing_rate",
+        "risk_distribution_shift"
+      ],
+      "js_divergence": 1.0
+    },
+    "variant_c": {
+      "unsafe": false,
+      "reasons": [],
+      "js_divergence": 0.04671209423149926
+    }
+  }
+}
